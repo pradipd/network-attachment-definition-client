@@ -1,4 +1,4 @@
-module github.com/k8snetworkplumbingwg/network-attachment-definition-client
+module github.com/pradipd/network-attachment-definition-client
 
 go 1.12
 
