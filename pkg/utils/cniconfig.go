@@ -17,13 +17,14 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/containernetworking/cni/libcni"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 
-	v1 "github.com/k8snetworkplumbingwg/network-attachment-definition-client/pkg/apis/k8s.cni.cncf.io/v1"
+	"github.com/containernetworking/cni/libcni"
+
+	v1 "github.com/pradipd/network-attachment-definition-client/pkg/apis/k8s.cni.cncf.io/v1"
 )
 
 const (
