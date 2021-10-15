@@ -1,8 +1,9 @@
 package v1
 
 import (
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"net"
+
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // +genclient
@@ -43,18 +44,20 @@ const (
 	DeviceInfoTypeVHostUser = "vhost-user"
 	DeviceInfoTypeMemif     = "memif"
 	DeviceInfoTypeVDPA      = "vdpa"
+	DeviceInfoTypeNetvsc    = "netvsc"
 	DeviceInfoVersion       = "1.0.0"
 )
 
 // DeviceInfo contains the information of the device associated
 // with this network (if any)
 type DeviceInfo struct {
-	Type      string       `json:"type,omitempty"`
-	Version   string       `json:"version,omitempty"`
-	Pci       *PciDevice   `json:"pci,omitempty"`
-	Vdpa      *VdpaDevice  `json:"vdpa,omitempty"`
-	VhostUser *VhostDevice `json:"vhost-user,omitempty"`
-	Memif     *MemifDevice `json:"memif,omitempty"`
+	Type      string        `json:"type,omitempty"`
+	Version   string        `json:"version,omitempty"`
+	Pci       *PciDevice    `json:"pci,omitempty"`
+	Vdpa      *VdpaDevice   `json:"vdpa,omitempty"`
+	VhostUser *VhostDevice  `json:"vhost-user,omitempty"`
+	Memif     *MemifDevice  `json:"memif,omitempty"`
+	Netvsc    *NetvscDevice `json:"netvsc,omitempty"`
 }
 
 type PciDevice struct {
@@ -94,6 +97,10 @@ type MemifDevice struct {
 	Role string `json:"role,omitempty"`
 	Path string `json:"path,omitempty"`
 	Mode string `json:"mode,omitempty"`
+}
+
+type NetvscDevice struct {
+	Uuid string `json:"uuid,omitempty"`
 }
 
 // NetworkStatus is for network status annotation for pod
