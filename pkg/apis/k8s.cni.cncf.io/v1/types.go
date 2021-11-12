@@ -100,7 +100,8 @@ type MemifDevice struct {
 }
 
 type NetvscDevice struct {
-	Uuid string `json:"uuid,omitempty"`
+	Uuid       string `json:"uuid,omitempty"`
+	PciAddress string `json:"pci-address,omitempty"`
 }
 
 // NetworkStatus is for network status annotation for pod
